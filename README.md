@@ -7,6 +7,9 @@ LZ4 Compression and Decompression for Delphi, Lazarus, Free Pascal
 var F,S: TFileStream;
     Size: Integer;
 begin
+  LZ4_COMPRESSION := 1; //small files but slow
+  LZ4_COMPRESSION := 50; //bigger files, faster
+
   F := TFileStream.Create('input.txt', fmOpenRead);
   S := TFileStream.Create('output.lz4', fmCreate);
   LZ4(F, S);
